@@ -2,12 +2,9 @@ package com.geekbrains.myapplication.first;
 
 
 import android.util.Log;
-
 import java.util.concurrent.TimeUnit;
-
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
 
 public class FirstPresenter {
@@ -30,9 +27,4 @@ public class FirstPresenter {
         }).subscribeOn(Schedulers.io());
         return observableStr;
     }
-
-    public void stopMessaging(){
-
-    }
-
 }

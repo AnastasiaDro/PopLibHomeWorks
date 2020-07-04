@@ -4,14 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
 import com.geekbrains.myapplication.R;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.Observable;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
@@ -49,7 +46,5 @@ public class FirstActivity extends AppCompatActivity {
     public void onClickStopCountBtn(View view){
         disposable.dispose();
     }
-
-
 
 }
