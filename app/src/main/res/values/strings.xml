@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PopLibHomeWorks</string>
+    <string name="startSendMsg">Начать рассылку</string>
+    <string name="stopSending">Остановить рассылку</string>
+    <string name="messages">Сообщения</string>
+
+    <string name="oneMessage">Единственное сообщение</string>
 </resources>
