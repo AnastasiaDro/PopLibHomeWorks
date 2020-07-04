@@ -15,19 +15,21 @@ public class FirstActivity extends AppCompatActivity {
 
     private static final String TAG = "firstActivity";
 
-    @BindView(R.id.startCountBtn)
-    Button startCountButton;
+    private FirstPresenter firstPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         ButterKnife.bind(this);
+
+        firstPresenter = new FirstPresenter();
     }
 
-    @OnClick(R.id.startCountBtn)
-      public void onClickStartButton(View view){
 
+    @OnClick(R.id.startCountBtn)
+      public void onClickStartBtn(View view){
+        firstPresenter.getMsg();
     }
 
     @OnClick(R.id.stopCountBtn)
