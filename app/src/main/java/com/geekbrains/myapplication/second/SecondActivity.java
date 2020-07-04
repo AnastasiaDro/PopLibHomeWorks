@@ -17,7 +17,7 @@ import io.reactivex.disposables.Disposable;
 
 public class SecondActivity extends AppCompatActivity {
 
-    private static final String TAG = "firstActivity";
+    private static final String TAG = "secondActivity";
     private Single<String> single;
     private Disposable disposable;
     private SecondPresenter secondPresenter;
