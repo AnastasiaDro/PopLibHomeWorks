@@ -10,11 +10,16 @@ import com.geekbrains.myapplication.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.Observable;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 
 public class FirstActivity extends AppCompatActivity {
 
     private static final String TAG = "firstActivity";
-
+    private Observable<String> observable;
+    private Disposable disposable;
     private FirstPresenter firstPresenter;
 
     @Override
@@ -24,17 +29,25 @@ public class FirstActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         firstPresenter = new FirstPresenter();
+        observable = firstPresenter.getMsg();
     }
 
 
     @OnClick(R.id.startCountBtn)
       public void onClickStartBtn(View view){
+        disposable = observable.observeOn(AndroidSchedulers.mainThread()).subscribe(string -> {
+            Log.d(TAG, "onNext: " + string);
+        }, throwable -> {
+            Log.e(TAG, "onError");
+        }, () ->{
+            Log.d(TAG, "onComplete: ");
+        });
         firstPresenter.getMsg();
     }
 
     @OnClick(R.id.stopCountBtn)
     public void onClickStopCountBtn(View view){
-
+        disposable.dispose();
     }
 
 

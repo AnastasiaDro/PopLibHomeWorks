@@ -30,4 +30,9 @@ public class FirstPresenter {
         }).subscribeOn(Schedulers.io());
         return observableStr;
     }
+
+    public void stopMessaging(){
+
+    }
+
 }
