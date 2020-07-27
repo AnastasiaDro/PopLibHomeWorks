@@ -1,10 +1,11 @@
-package com.geekbrains.myapplication;
+package com.geekbrains.myapplication.gsonactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 
+import com.geekbrains.myapplication.R;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

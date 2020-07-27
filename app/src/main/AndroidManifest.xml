@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GsonActivity">
+        <activity android:name=".retrofitactivity.RetrofitActivity"></activity>
+        <activity android:name=".gsonactivity.GsonActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
