@@ -10,5 +10,5 @@ public class Year {
 
     @Expose
     @SerializedName("year")
-    public int yearName;
+    public Integer yearName;
 }

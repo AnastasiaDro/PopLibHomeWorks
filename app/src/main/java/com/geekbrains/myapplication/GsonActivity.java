@@ -18,9 +18,12 @@ public class GsonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gson);
 
+
         String yearGson = "{\n" +
                 "  \"time_of_year\": \"Summer\",\n" +
-                "  \"year\": 2019, \n " + "}";
+                "  \"year\": 2019 \n" +
+                "}";
+
 
         Gson gson = new GsonBuilder().create();
         Year year = gson.fromJson(yearGson, Year.class);
