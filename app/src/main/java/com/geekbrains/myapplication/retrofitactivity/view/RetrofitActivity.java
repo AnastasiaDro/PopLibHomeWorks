@@ -12,10 +12,11 @@ import com.geekbrains.myapplication.retrofitactivity.model.entity.JakeWhartonAva
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import moxy.MvpAppCompatActivity;
 import moxy.presenter.InjectPresenter;
 import moxy.presenter.ProvidePresenter;
 
-public class RetrofitActivity extends AppCompatActivity implements MainView {
+public class RetrofitActivity extends MvpAppCompatActivity implements MainView {
 
     private static final String TAG = "RetrofitDifActivity";
 
