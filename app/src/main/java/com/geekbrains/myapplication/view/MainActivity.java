@@ -22,6 +22,9 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     EditText surnameEditText;
     EditText ageEditText;
 
+    EditText delIdEditText;
+    EditText delSurnameEditText;
+
     @InjectPresenter
     Presenter presenter;
 
@@ -48,10 +51,26 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         presenter.addUsersList();
     }
 
+    @OnClick(R.id.delByIdBtn)
+    public void onDelByIdBtn(View view){
+        Log.d(TAG, "onDelByIdBtn");
+        int id = Integer.parseInt(delIdEditText.getText().toString());
+        presenter.delById(id);
+    }
+
+    @OnClick(R.id.delBySurnameBtn)
+    public void onDelBySurnameBtn(View view){
+        Log.d(TAG, "onDelBySurnameBtn");
+        String surname = delSurnameEditText.getText().toString();
+        presenter.delBySurname(surname);
+    }
+
     public void init() {
         nameEditText = findViewById(R.id.nameEditText);
         surnameEditText = findViewById(R.id.surnameEditText);
         ageEditText = findViewById(R.id.ageEditText);
+        delIdEditText = findViewById(R.id.delIdEditText);
+        delSurnameEditText = findViewById(R.id.delSurnameEditText);
     }
 
     @Override
@@ -59,5 +78,15 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         nameEditText.setText("");
         surnameEditText.setText("");
         ageEditText.setText("");
+    }
+
+    @Override
+    public void clearDelByIdDataFrame() {
+        delIdEditText.setText("");
+    }
+
+    @Override
+    public void clearDelBySurnameDataFrame() {
+        delSurnameEditText.setText("");
     }
 }

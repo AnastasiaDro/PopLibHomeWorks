@@ -64,4 +64,46 @@ public class Presenter extends MvpPresenter <MainView> {
                     Log.d(TAG, "addUsersList: " + throwable);
                 });
     }
+
+    //удаление пользователя по Id;
+    public void delById(int id) {
+        Log.d(TAG, "id удаляемого пользователя= " + id);
+        User user = new User();
+        user.id = id;
+        Disposable disposable = userDao.delete(user).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mId -> {
+                    Log.d(TAG, "deleteUser. Всего удалено: " + mId);
+                }, throwable -> {
+                    Log.d(TAG, "ОШИБКА deleteUser, id: " + throwable);
+                });
+        getViewState().clearDelByIdDataFrame();
+
+        //Проверим, что останется после удаления по id
+        Disposable disposable1 = userDao.getAll().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(bdDataList->{
+                    Log.d(TAG, "После удаления по id: " + bdDataList);
+        });
+    }
+
+    //удаление пользователя по фамилии;
+    public void delBySurname(String surname) {
+        Log.d(TAG, "Фамилия удаляемого пользователя = " + surname);
+//        User user = new User();
+//        user.surname = surname;
+        Disposable disposable = userDao.deleteUserBySurname(surname).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(mSurname -> {
+                    Log.d(TAG, "delUserBySurname. Всего удалено: " + mSurname);
+                }, throwable -> {
+                    Log.d(TAG, "ОШИБКА delUserBySurname: " + throwable);
+                });
+        getViewState().clearDelBySurnameDataFrame();
+
+        //Проверим, что останется после удаления по фамилии
+        Disposable disposable1 = userDao.getAll().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(bdDataList->{
+                    Log.d(TAG, "После удаления по фамилии: " + bdDataList);
+                });
+    }
 }

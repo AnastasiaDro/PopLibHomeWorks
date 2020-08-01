@@ -10,6 +10,7 @@ import com.geekbrains.myapplication.room.User;
 
 import java.util.List;
 
+import butterknife.OnClick;
 import io.reactivex.Single;
 
 @Dao
@@ -22,9 +23,8 @@ public interface UserDao {
     Single<List<User>> getAllById(int id);
 
     //найти по фамилии
-    @Query("SELECT * FROM table_users WHERE name = :surname")
+    @Query("SELECT * FROM table_users WHERE surname = :surname")
     Single<List<User>> getAllBySurname(String surname);
-
 
     @Insert
     Single<Long> insert(User user);
@@ -34,6 +34,9 @@ public interface UserDao {
 
     @Delete
     Single<Integer> delete(User user);
+
+    @Query("DELETE FROM table_users WHERE surname = :surname")
+    Single <Integer> deleteUserBySurname(String surname);
 
     @Update
     Single<Integer> update(User user);
