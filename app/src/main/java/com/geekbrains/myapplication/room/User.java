@@ -1,4 +1,4 @@
-package com.geekbrains.myapplication;
+package com.geekbrains.myapplication.room;
 
 
 import androidx.room.Entity;

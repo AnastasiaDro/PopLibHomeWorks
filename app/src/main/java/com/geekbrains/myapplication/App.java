@@ -3,6 +3,8 @@ package com.geekbrains.myapplication;
 import android.app.Application;
 import androidx.room.Room;
 
+import com.geekbrains.myapplication.room.AppDatabase;
+
 public class App extends Application {
 
     private static AppDatabase appDatabase;
