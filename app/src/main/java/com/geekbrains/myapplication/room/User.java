@@ -14,5 +14,14 @@ public class User {
     public String surname;
     public String age;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", age='" + age + '\'' +
+                '}';
+    }
 
 }

@@ -15,7 +15,7 @@ import butterknife.OnClick;
 import moxy.MvpAppCompatActivity;
 import moxy.presenter.InjectPresenter;
 
-public class MainActivity extends MvpAppCompatActivity {
+public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     private static final String TAG = "MainActivity";
     EditText nameEditText;
@@ -36,7 +36,6 @@ public class MainActivity extends MvpAppCompatActivity {
     @OnClick({R.id.addBtn})
     public void onClickAddBtn(View view){
         Log.d(TAG, "onAddBtn");
-
         String name = nameEditText.getText().toString();
         String surname = surnameEditText.getText().toString();
         String age = ageEditText.getText().toString();
@@ -46,6 +45,13 @@ public class MainActivity extends MvpAppCompatActivity {
     public void init() {
         nameEditText = findViewById(R.id.nameEditText);
         surnameEditText = findViewById(R.id.surnameEditText);
-        ageEditText = findViewById(R.id.surnameEditText);
+        ageEditText = findViewById(R.id.ageEditText);
+    }
+
+    @Override
+    public void clearPutDataFrames() {
+        nameEditText.setText("");
+        surnameEditText.setText("");
+        ageEditText.setText("");
     }
 }
