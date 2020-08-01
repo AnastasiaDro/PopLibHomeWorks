@@ -42,6 +42,12 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         presenter.addUser(name, surname, age);
     }
 
+    @OnClick({R.id.addSeveralUsersBtn})
+        public void onClickSevUbtn(View view){
+            Log.d(TAG, "onAddSeveralUsersBtn");
+        presenter.addUsersList();
+    }
+
     public void init() {
         nameEditText = findViewById(R.id.nameEditText);
         surnameEditText = findViewById(R.id.surnameEditText);
