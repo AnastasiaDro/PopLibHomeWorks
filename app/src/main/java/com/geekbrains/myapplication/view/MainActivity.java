@@ -10,6 +10,8 @@ import android.widget.EditText;
 import com.geekbrains.myapplication.R;
 import com.geekbrains.myapplication.presenter.Presenter;
 
+import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import moxy.MvpAppCompatActivity;
@@ -18,13 +20,12 @@ import moxy.presenter.InjectPresenter;
 public class MainActivity extends MvpAppCompatActivity implements MainView {
 
     private static final String TAG = "MainActivity";
+
     EditText nameEditText;
     EditText surnameEditText;
     EditText ageEditText;
-
     EditText delIdEditText;
     EditText delSurnameEditText;
-
     EditText updateByIdEditText;
 
     @InjectPresenter
@@ -79,8 +80,6 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         Log.d(TAG, "onCheckBdBtn");
         presenter.checkBd();
     }
-
-
 
     public void init() {
         nameEditText = findViewById(R.id.nameEditText);

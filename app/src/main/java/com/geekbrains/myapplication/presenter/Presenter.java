@@ -118,7 +118,7 @@ public class Presenter extends MvpPresenter <MainView> {
                 .subscribe(updatedNum->{
                     Log.d(TAG, "обновим по id: " + user.id);
                 });
-
+        getViewState().clearUpdateByIdDataFrame();
     }
 
     public void checkBd(){
@@ -127,6 +127,6 @@ public class Presenter extends MvpPresenter <MainView> {
                 .subscribe(bdDataList->{
                     Log.d(TAG, "Содержимое базы данных " + bdDataList);
                 });
-        getViewState().clearUpdateByIdDataFrame();
+
     }
 }
