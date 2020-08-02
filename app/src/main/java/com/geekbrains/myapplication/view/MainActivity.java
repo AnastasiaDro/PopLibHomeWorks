@@ -25,6 +25,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     EditText delIdEditText;
     EditText delSurnameEditText;
 
+    EditText updateByIdEditText;
+
     @InjectPresenter
     Presenter presenter;
 
@@ -65,12 +67,28 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
         presenter.delBySurname(surname);
     }
 
+    @OnClick(R.id.updateUserBtn)
+    public void onUpdateUserBtn(View view){
+        Log.d(TAG, "onUpdateUserBtn");
+        int id = Integer.parseInt(updateByIdEditText.getText().toString());
+        presenter.updateUserById(id);
+    }
+
+    @OnClick(R.id.checkBtn)
+    public void onCheckBdBtn(View view){
+        Log.d(TAG, "onCheckBdBtn");
+        presenter.checkBd();
+    }
+
+
+
     public void init() {
         nameEditText = findViewById(R.id.nameEditText);
         surnameEditText = findViewById(R.id.surnameEditText);
         ageEditText = findViewById(R.id.ageEditText);
         delIdEditText = findViewById(R.id.delIdEditText);
         delSurnameEditText = findViewById(R.id.delSurnameEditText);
+        updateByIdEditText= findViewById(R.id.updateByIdEditText);
     }
 
     @Override
@@ -88,5 +106,10 @@ public class MainActivity extends MvpAppCompatActivity implements MainView {
     @Override
     public void clearDelBySurnameDataFrame() {
         delSurnameEditText.setText("");
+    }
+
+    @Override
+    public void clearUpdateByIdDataFrame(){
+        updateByIdEditText.setText("");
     }
 }

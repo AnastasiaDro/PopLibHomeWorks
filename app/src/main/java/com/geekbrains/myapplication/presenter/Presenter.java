@@ -79,11 +79,11 @@ public class Presenter extends MvpPresenter <MainView> {
         getViewState().clearDelByIdDataFrame();
 
         //Проверим, что останется после удаления по id
-        Disposable disposable1 = userDao.getAll().subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(bdDataList->{
-                    Log.d(TAG, "После удаления по id: " + bdDataList);
-        });
+//        Disposable disposableTwo = userDao.getAll().subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(bdDataList->{
+//                    Log.d(TAG, "После удаления по id: " + bdDataList);
+//        });
     }
 
     //удаление пользователя по фамилии;
@@ -99,11 +99,34 @@ public class Presenter extends MvpPresenter <MainView> {
                 });
         getViewState().clearDelBySurnameDataFrame();
 
-        //Проверим, что останется после удаления по фамилии
-        Disposable disposable1 = userDao.getAll().subscribeOn(Schedulers.io())
+//        //Проверим, что останется после удаления по фамилии
+//        Disposable disposableTwo = userDao.getAll().subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(bdDataList->{
+//                    Log.d(TAG, "После удаления по фамилии: " + bdDataList);
+//                });
+    }
+
+    public void updateUserById(int id){
+        User user = new User();
+        user.id = id;
+        user.surname = "updated";
+        user.name = "updated";
+        user.age = "updated";
+        Disposable disposable = userDao.update(user).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(updatedNum->{
+                    Log.d(TAG, "обновим по id: " + user.id);
+                });
+
+    }
+
+    public void checkBd(){
+        Disposable disposable = userDao.getAll().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(bdDataList->{
-                    Log.d(TAG, "После удаления по фамилии: " + bdDataList);
+                    Log.d(TAG, "Содержимое базы данных " + bdDataList);
                 });
+        getViewState().clearUpdateByIdDataFrame();
     }
 }

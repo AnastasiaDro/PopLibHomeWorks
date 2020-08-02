@@ -26,6 +26,12 @@ public interface UserDao {
     @Query("SELECT * FROM table_users WHERE surname = :surname")
     Single<List<User>> getAllBySurname(String surname);
 
+    @Query("DELETE FROM table_users WHERE surname = :surname")
+    Single <Integer> deleteUserBySurname(String surname);
+
+//    @Query("UPDATE  table_users WHERE surname = :surname")
+//    Single <Integer> updateUserBySurname(String surname);
+
     @Insert
     Single<Long> insert(User user);
 
@@ -35,8 +41,7 @@ public interface UserDao {
     @Delete
     Single<Integer> delete(User user);
 
-    @Query("DELETE FROM table_users WHERE surname = :surname")
-    Single <Integer> deleteUserBySurname(String surname);
+
 
     @Update
     Single<Integer> update(User user);

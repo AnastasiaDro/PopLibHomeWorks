@@ -14,4 +14,7 @@ public interface MainView extends MvpView {
 
     @StateStrategyType(value = SingleStateStrategy.class)
     void clearDelBySurnameDataFrame();
+
+    @StateStrategyType(value = SingleStateStrategy.class)
+    void clearUpdateByIdDataFrame();
 }
