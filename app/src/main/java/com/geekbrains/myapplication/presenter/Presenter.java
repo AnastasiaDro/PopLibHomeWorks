@@ -127,6 +127,5 @@ public class Presenter extends MvpPresenter <MainView> {
                 .subscribe(bdDataList->{
                     Log.d(TAG, "Содержимое базы данных " + bdDataList);
                 });
-
     }
 }
