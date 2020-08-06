@@ -1,7 +1,5 @@
 package com.geekbrains.myapplication.unit;
 
-import com.geekbrains.myapplication.firstExc.CalcAmount;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,11 +1,10 @@
-package com.geekbrains.myapplication.view;
+package com.geekbrains.myapplication.unit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.geekbrains.myapplication.R;
-import com.geekbrains.myapplication.firstExc.CalcAmount;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.geekbrains.myapplication.firstExc;
+package com.geekbrains.myapplication.unit;
 
 public class CalcAmount {
 
